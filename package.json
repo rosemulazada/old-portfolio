@@ -1,0 +1,26 @@
+{
+  "name": "portfolio-2-24",
+  "version": "1.0.0",
+  "description": "The second iteration of my portfolio for 2024.",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rosemulazada/portfolio-2-24"
+  },
+  "author": "Rose Mulazada",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rosemulazada/portfolio-2-24/issues"
+  },
+  "homepage": "https://github.com/rosemulazada/portfolio-2-24#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "nodemon": "^3.1.0",
+    "path": "^0.12.7"
+  }
+}

@@ -1,0 +1,63 @@
+*,
+*:after,
+*:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100dvh;
+}
+
+body {
+    min-height: 100%;
+}
+
+/*============================================
+ *                 CODE START
+ *============================================*/
+
+main {
+    min-height: 100%;
+}
+
+p#availabilityStatus::before {
+    content: "";
+    display: inline-block; /* Ensures the pseudo-element has dimensions */
+    width: 8px; /* Adjust the size of the dot */
+    height: 8px;
+    margin-left: 4px; /* Adjust the distance between the dot and the text */
+    border-radius: 50%; /* Makes the dot round */
+    background-color: green;
+}
+
+/* Source code trail cursor: https://www.youtube.com/watch?v=7eE8xPyXSR4 */
+/* TODO: See what I can do with this.. */
+body {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    background-color: white;
+    height: 100vh;
+}
+
+.cursor {
+    pointer-events: none;
+    position: fixed;
+    display: block;
+    border-radius: 0;
+    mix-blend-mode: difference;
+    top: 0;
+    left: 0;
+    z-index: 9999999999999999;
+}
+
+.circle {
+    position: absolute;
+    display: block;
+    width: 26px;
+    height: 26px;
+    border-radius: 20px;
+    background-color: #fff;
+}

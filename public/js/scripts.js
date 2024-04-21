@@ -185,22 +185,29 @@ window.addEventListener("load", () => {
 
 // INTRO
 document.addEventListener("DOMContentLoaded", () => {
-    gsap.set(".img", { y: 1000 });
-    // gsap.set(".loader-imgs", { x: 500 });
+    gsap.set(".img", { y: '100dvh' });
+    // gsap.set(".loader-imgs", { x: 1000 });
 
     const tl = gsap.timeline({ delay: 1 });
 
     tl.to("img", {
-        y: -1000,
+        y: '-100dvh',
         duration: 1.5,
         stagger: 0.05,
         ease: "power3.inOut",
     })
-
+        // .to(
+        //     ".loader-imgs",
+        //     {
+        //         x: 0,
+        //         duration: 3,
+        //         ease: "power3.inOut",
+        //     },
+        //     "-=2.5"
+        // )
         .to(".loader", {
             clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
             duration: 1,
             ease: "power3.inOut",
-        })
-        .to();
+        }).to();
 });

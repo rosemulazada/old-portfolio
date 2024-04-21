@@ -185,13 +185,15 @@ window.addEventListener("load", () => {
 
 // INTRO
 document.addEventListener("DOMContentLoaded", () => {
-    gsap.set(".img", { y: '100dvh' });
-    // gsap.set(".loader-imgs", { x: 1000 });
+    gsap.set(".img", { y: "100dvh" });
+    gsap.set(".slider__container", { y: 200, opacity: 0.25 });
+    gsap.set("header", { y: 25, opacity: 0 });
+    gsap.set("h1", { y: 25, opacity: 0 });
 
     const tl = gsap.timeline({ delay: 1 });
 
     tl.to("img", {
-        y: '-100dvh',
+        y: "-100dvh",
         duration: 1.5,
         stagger: 0.05,
         ease: "power3.inOut",
@@ -209,5 +211,28 @@ document.addEventListener("DOMContentLoaded", () => {
             clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
             duration: 1,
             ease: "power3.inOut",
-        }).to();
+        })
+        .to(
+            ".slider__container",
+            {
+                y: 0,
+                opacity: 1,
+                duration: 1,
+                stagger: 0.1,
+                ease: "power3.inOut",
+            },
+            "-=0.1"
+        )
+        .to(
+            ["header", "h1"],
+            {
+                y: 0,
+                opacity: 1,
+                duration: 1,
+                stagger: 0.1,
+                ease: "power3.inOut",
+                clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+            },
+            "-=0.25"
+        );
 });

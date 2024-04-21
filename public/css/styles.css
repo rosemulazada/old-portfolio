@@ -50,6 +50,8 @@ main {
 
 /* HEADER */
 header {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+
     display: flex;
     justify-content: space-between;
     padding: 2em;
@@ -63,6 +65,7 @@ header {
 
     .header_left__container {
         display: flex;
+        gap: 30px;
         #metadata {
             display: flex;
             flex-direction: column;
@@ -117,7 +120,7 @@ header {
     z-index: 9999999;
 
     .loader-imgs {
-        width: 100%;
+        width: 90%;
         position: absolute;
         top: 50%;
         left: 50%;

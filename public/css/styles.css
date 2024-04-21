@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
 *,
 *:after,
 *:before {
@@ -6,21 +8,25 @@
     box-sizing: border-box;
 }
 
+:root {
+    --font-stack: Inter, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+        "Helvetica Neue", sans-serif;
+}
+
 html {
     height: 100dvh;
 }
 
 body {
-    min-height: 100%;
+    min-height: 100dvh;
+    font-family: var(--font-stack);
+    overflow-x: hidden;
 }
 
 /*============================================
  *                 CODE START
  *============================================*/
-
-main {
-    min-height: 100%;
-}
 
 p#availabilityStatus::before {
     content: "";
@@ -34,30 +40,85 @@ p#availabilityStatus::before {
 
 /* Source code trail cursor: https://www.youtube.com/watch?v=7eE8xPyXSR4 */
 /* TODO: See what I can do with this.. */
-body {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    background-color: white;
-    height: 100vh;
+main {
+    height: 100dvh;
+    position: relative;
 }
 
-.cursor {
-    pointer-events: none;
-    position: fixed;
-    display: block;
-    border-radius: 0;
-    mix-blend-mode: difference;
-    top: 0;
-    left: 0;
-    z-index: 9999999999999999;
+/* HEADER */
+header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 2em;
+    font-size: 0.6rem;
+    &.default {
+        flex-direction: row;
+        > #metadata {
+            flex-direction: row;
+        }
+    }
+
+    #metadata {
+        display: flex;
+        flex-direction: column;
+        text-align: right;
+        width: max-content;
+    }
+
+    svg {
+        justify-self: center;
+    }
+
+    .hamburger_menu {
+        justify-self: end;
+        width: 25px;
+        span {
+            width: 100%;
+            height: 2px;
+            background: #141517;
+            display: inline-block;
+        }
+    }
 }
 
-.circle {
+/* LOADING SCREEN */
+#loading_screen {
+    height: 100%;
+    width: 200%;
+
+    background-color: #141517;
+    color: white;
+    /* border-bottom-left-radius: 50%; */
+    /* border-bottom-right-radius: 50%; */
+
     position: absolute;
-    display: block;
-    width: 26px;
-    height: 26px;
-    border-radius: 20px;
-    background-color: #fff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* LANDING PAGE: Name scroll */
+.slider__container {
+    position: absolute;
+    top: calc(100dvh - 300px);
+
+    .slider {
+        position: relative;
+        white-space: nowrap;
+        display: flex;
+
+        p {
+            font-size: 240px;
+            font-weight: 500;
+
+            &::last-of-type {
+                position: absolute;
+                left: 100%;
+            }
+        }
+    }
 }

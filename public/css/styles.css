@@ -114,6 +114,7 @@ header {
         p {
             font-size: 240px;
             font-weight: 500;
+            margin-right: 50px;
 
             &::last-of-type {
                 position: absolute;

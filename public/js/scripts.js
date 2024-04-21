@@ -68,44 +68,60 @@ setInterval(updateClock, 1000);
 
 // INTRO
 // Rose animation
-const introRoseImg = document.querySelector("#loading_screen__rose");
-console.log(introRoseImg);
+// const introRoseImg = document.querySelector("#loading_screen__rose");
+// console.log(introRoseImg);
 
-gsap.from(introRoseImg, {
-    opacity: 0,
-    // rotation: 100,
-    // duration: 2.5,
-    duration: 0.00001,
-    // ease: "elastic.out(1,0.3)",
-    onComplete: () => {
-        const blackScreen = document.querySelector("#loading_screen");
-        // Page move up
-        gsap.fromTo(
-            blackScreen,
-            {},
-            {
-                y: "-100dvh",
-                // duration: 3.2,
-                duration: 0.00001,
-                ease: "expo.out",
-                width: "200%",
-                onComplete: () => {
-                    blackScreen.remove();
-                },
-            }
-        );
+// gsap.from(introRoseImg, {
+//     opacity: 0,
+//     // rotation: 100,
+//     // duration: 2.5,
+//     duration: 0.00001,
+//     // ease: "elastic.out(1,0.3)",
+//     onComplete: () => {
+//         const blackScreen = document.querySelector("#loading_screen");
+//         // Page move up
+//         gsap.fromTo(
+//             blackScreen,
+//             {},
+//             {
+//                 y: "-100dvh",
+//                 // duration: 3.2,
+//                 duration: 0.00001,
+//                 ease: "expo.out",
+//                 width: "200%",
+//                 onComplete: () => {
+//                     blackScreen.remove();
+//                 },
+//             }
+//         );
+//     },
+// });
+
+const headerLogo = document.querySelector(".logo");
+const paths = headerLogo.querySelectorAll("path");
+const rotationTimeline = gsap.timeline({ paused: true });
+
+rotationTimeline.to(headerLogo, {
+    rotation: 360,
+    duration: 2,
+    ease: "none",
+    repeat: -1,
+});
+rotationTimeline.to(
+    paths,
+    {
+        fill: "darkred",
+        duration: 0,
     },
+    0
+);
+
+headerLogo.addEventListener("mouseenter", () => {
+    rotationTimeline.play();
 });
-
-const headerLogo = document.querySelector('.logo');
-console.log(headerLogo)
-
-headerLogo.addEventListener("mouseover", () => {
-    gsap.to(headerLogo, {
-        rotation: 360,
-    })
+headerLogo.addEventListener("mouseleave", () => {
+    rotationTimeline.reverse();
 });
-
 
 // Header shift
 // gsap.registerPlugin(ScrollTrigger);
@@ -165,4 +181,26 @@ window.addEventListener("load", () => {
         },
         x: "-500px",
     });
+});
+
+// INTRO
+document.addEventListener("DOMContentLoaded", () => {
+    gsap.set(".img", { y: 1000 });
+    // gsap.set(".loader-imgs", { x: 500 });
+
+    const tl = gsap.timeline({ delay: 1 });
+
+    tl.to("img", {
+        y: -1000,
+        duration: 1.5,
+        stagger: 0.05,
+        ease: "power3.inOut",
+    })
+
+        .to(".loader", {
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+            duration: 1,
+            ease: "power3.inOut",
+        })
+        .to();
 });

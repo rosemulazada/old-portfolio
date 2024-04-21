@@ -97,6 +97,16 @@ gsap.from(introRoseImg, {
     },
 });
 
+const headerLogo = document.querySelector('.logo');
+console.log(headerLogo)
+
+headerLogo.addEventListener("mouseover", () => {
+    gsap.to(headerLogo, {
+        rotation: 360,
+    })
+});
+
+
 // Header shift
 // gsap.registerPlugin(ScrollTrigger);
 
@@ -121,7 +131,7 @@ gsap.from(introRoseImg, {
 // LANDING PAGE
 // Name scroll
 // SRC: www.youtube.com/watch?v=AqMESJ51e3o - Tweaked to work without React
-https: window.addEventListener("load", () => {
+window.addEventListener("load", () => {
     const firstText = document.querySelector(".first-text");
     const secondText = document.querySelector(".second-text");
     const slider = document.querySelector(".slider");
